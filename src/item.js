@@ -25,7 +25,9 @@ export default class Item extends React.Component {
     };
 
     render() {
-        const className = this.props.isActive ? 'active colby-tabs-tab' : 'colby-tabs-tab';
+        const className = this.props.isActive
+            ? 'active colby-tabs-tab nav-item nav-link'
+            : 'colby-tabs-tab nav-item nav-link';
         const badge =
             this.props.badge === '' ? null : <span className="badge">{this.props.badge}</span>;
 

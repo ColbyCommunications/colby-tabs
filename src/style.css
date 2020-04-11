@@ -3,6 +3,7 @@
 }
 .vertical {
     .tabsLeft {
+        display: block;
         border-bottom: none;
         padding-top: 2px;
         border-right: 1px solid #ddd;
@@ -18,10 +19,8 @@
             }
         }
         > li:global.active {
-            > a {
-                border-bottom-color: #ddd !important;
-                border-right-color: transparent;
-            }
+            border-bottom-color: #ddd !important;
+            border-right-color: transparent;
         }
     }
 }

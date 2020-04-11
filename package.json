@@ -1,6 +1,6 @@
 {
     "name": "@colbycommunications/colby-tabs",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Bootstrap tabs component",
     "main": "dist/index.js",
     "author": "Brandon K. Waltz",
@@ -10,6 +10,7 @@
     },
     "scripts": {
         "build": "colby-package-build",
+        "build:examples": "colby-webpack-build --examples",
         "build:watch": "colby-package-build --watch --verbose",
         "lint": "colby-package-lint",
         "format": "colby-package-format",
@@ -18,15 +19,19 @@
         "prepublishOnly": "colby-package-registry && npm run check && colby-package-build"
     },
     "devDependencies": {
-        "@colbycommunications/colby-package": "^2.2.3"
+        "@colbycommunications/colby-package": "^2.2.3",
+        "@colbycommunications/colby-webpack": "^1.1.2"
     },
     "dependencies": {
+        "bootstrap": "^4.4.1",
+        "node-sass": "^4.13.1",
+        "prop-types": "^15.0.0",
         "react": "^16.0.0",
-        "prop-types": "^15.0.0"
+        "react-dom": "^16.13.1"
     },
     "husky": {
         "hooks": {
-            "pre-commit": "colby-package-format -s && colby-package-lint -s && colby-package-test -s"
+            "pre-commit": "colby-package-format -s && colby-package-lint -s && colby-package-test -s && colby-webpack-build --examples"
         }
     }
 }
