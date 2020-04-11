@@ -11,7 +11,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
     - name: Clean NPM
-      run: npm cache clean --force;npm rebuild;rm -rf node_modules
+      run: rm -rf node_modules;rm package-lock.json;npm cache clean --force; 
     - name: Authenticate GitHub Package Registry
       run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.WEBMASTER_SECRET }}" > ~/.npmrc
     - name: Install NPM Dependencies
