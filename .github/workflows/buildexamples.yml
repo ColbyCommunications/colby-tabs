@@ -10,10 +10,10 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v1
-    - name: Authenticate GitHub Package Registry
-      run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.WEBMASTER_SECRET }}" > ~/.npmrc
     - name: Clean Npm Cache
       run: npm cache clean --force
+    - name: Authenticate GitHub Package Registry
+      run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.WEBMASTER_SECRET }}" > ~/.npmrc
     - name: Install NPM Dependencies
       run: npm install
       env:
