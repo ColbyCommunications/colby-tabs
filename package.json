@@ -18,7 +18,7 @@
         "prepublishOnly": "colby-package-registry && npm run check && colby-package-build"
     },
     "devDependencies": {
-        "@colbycommunications/colby-package": "^2.2.2"
+        "@colbycommunications/colby-package": "^2.2.3"
     },
     "dependencies": {
         "react": "^16.0.0",

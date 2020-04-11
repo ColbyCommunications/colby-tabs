@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -18,18 +19,18 @@ export default class Item extends React.Component {
         onSelectTab() {},
     };
 
-    _clicked = e => {
+    clicked = e => {
         e.preventDefault();
         this.props.onSelectTab(this.props.name);
     };
 
     render() {
-        var className = this.props.isActive ? 'active colby-tabs-tab' : 'colby-tabs-tab';
-        var badge =
+        const className = this.props.isActive ? 'active colby-tabs-tab' : 'colby-tabs-tab';
+        const badge =
             this.props.badge === '' ? null : <span className="badge">{this.props.badge}</span>;
 
         return (
-            <li role="presentation" className={className} onClick={this._clicked}>
+            <li role="presentation" className={className} onClick={this.clicked}>
                 <a href="#">
                     {this.props.title} {badge}
                 </a>

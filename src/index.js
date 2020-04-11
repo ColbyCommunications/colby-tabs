@@ -62,7 +62,7 @@ export default class Tabs extends React.Component {
         }
     }
 
-    _onSelectTab = tab => {
+    onSelectTab = tab => {
         if (this.props.saveInHash) {
             window.location.hash = tab;
         }
@@ -92,7 +92,7 @@ export default class Tabs extends React.Component {
                     title={item.title}
                     badge={item.badge}
                     isActive={this.state.currentTab === item.name}
-                    onSelectTab={this._onSelectTab}
+                    onSelectTab={this.onSelectTab}
                 />
             );
         });
@@ -107,11 +107,9 @@ export default class Tabs extends React.Component {
             }
 
             return (
-                <div className={style.vertical + ' row colby-tabs'}>
+                <div className={`${style.vertical} row colby-tabs`}>
                     <div className={`col-xs-${left}`}>
-                        <ul className={'nav nav-tabs ' + style.tabs + ' ' + style.tabsLeft}>
-                            {rows}
-                        </ul>
+                        <ul className={`nav nav-tabs ${style.tabs} ${style.tabsLeft}`}>{rows}</ul>
                     </div>
                     <div className={`col-xs-${right} colby-tabs-tab-content`}>{tabContent}</div>
                 </div>
@@ -120,7 +118,7 @@ export default class Tabs extends React.Component {
 
         return (
             <div>
-                <ul className={'nav nav-tabs ' + style.tabs}>{rows}</ul>
+                <ul className={`nav nav-tabs ${style.tabs}`}>{rows}</ul>
                 {tabContent}
             </div>
         );
