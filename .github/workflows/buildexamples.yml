@@ -1,0 +1,20 @@
+name: Build Examples
+
+on: [push]
+
+jobs:
+  build_examples:
+    name: Build Examples
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Authenticate GitHub Package Registry
+      run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.WEBMASTER_SECRET }}" > ~/.npmrc
+    - name: Install NPM Dependencies
+      run: npm install
+      env:
+        NODE_AUTH_TOKEN: '${{ secrets.WEBMASTER_SECRET }}'
+    - name: Run Jest
+      run: npm run build:examples
