@@ -31,7 +31,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "colby-package-format -s && colby-package-lint -s && colby-package-test -s && colby-webpack-build --examples"
+            "pre-commit": "colby-package-format -s && colby-package-lint -s && colby-package-test -s"
         }
     }
 }
