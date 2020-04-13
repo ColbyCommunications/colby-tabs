@@ -10,6 +10,7 @@ export default class Item extends React.Component {
         isActive: PropTypes.bool,
         isVertical: PropTypes.bool,
         onSelectTab: PropTypes.func,
+        tabClasses: PropTypes.object.isRequired,
     };
 
     static defaultProps = {
@@ -28,13 +29,15 @@ export default class Item extends React.Component {
 
     render() {
         const className = this.props.isActive
-            ? 'active colby-tabs-pill nav-link'
-            : 'colby-tabs-pill nav-link';
+            ? `active colby-tabs-pill ${this.props.tabClasses.tabs}`
+            : `colby-tabs-pill ${this.props.tabClasses.tabs}`;
 
         const ariaSelected = this.props.isActive || false;
 
         const badge =
-            this.props.badge === '' ? null : <span className="badge">{this.props.badge}</span>;
+            this.props.badge === '' ? null : (
+                <span className="badge badge-pill badge-light">{this.props.badge}</span>
+            );
 
         let item = (
             <li className="nav-item">

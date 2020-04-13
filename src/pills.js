@@ -20,6 +20,9 @@ export default class Pills extends React.Component {
 
         /** If orientation is vertical, you can pass the bootstrap grid widths of tab and content cols */
         verticalTabWidths: PropTypes.object,
+
+        /** Pass specific classes to tabs or tab containers  */
+        tabClasses: PropTypes.object,
     };
 
     static defaultProps = {
@@ -30,6 +33,10 @@ export default class Pills extends React.Component {
         verticalTabWidths: {
             left: 3,
             right: 9,
+        },
+        tabClasses: {
+            tabContainer: 'nav nav-pills',
+            tabs: 'nav-item nav-link',
         },
     };
 
@@ -94,6 +101,7 @@ export default class Pills extends React.Component {
                     isVertical={this.props.orientation === 'vertical'}
                     isActive={this.state.currentTab === item.name}
                     onSelectTab={this.onSelectTab}
+                    tabClasses={this.props.tabClasses}
                 />
             );
         });
@@ -130,7 +138,7 @@ export default class Pills extends React.Component {
 
         return (
             <div className="colby-pills">
-                <ul className="nav nav-pills">{rows}</ul>
+                <ul className={`${this.props.tabClasses.tabContainer}`}>{rows}</ul>
                 <div className="tab-content">{tabContent}</div>
             </div>
         );

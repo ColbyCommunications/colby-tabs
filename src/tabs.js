@@ -20,6 +20,9 @@ export default class Tabs extends React.Component {
 
         /** If orientation is vertical, you can pass the bootstrap grid widths of tab and content cols */
         verticalTabWidths: PropTypes.object,
+
+        /** Pass specific classes to tabs or tab containers  */
+        tabClasses: PropTypes.object,
     };
 
     static defaultProps = {
@@ -30,6 +33,10 @@ export default class Tabs extends React.Component {
         verticalTabWidths: {
             left: 3,
             right: 9,
+        },
+        tabClasses: {
+            tabContainer: 'nav nav-tabs',
+            tabs: 'nav-item nav-link',
         },
     };
 
@@ -93,6 +100,7 @@ export default class Tabs extends React.Component {
                     badge={item.badge}
                     isActive={this.state.currentTab === item.name}
                     onSelectTab={this.onSelectTab}
+                    tabClasses={this.props.tabClasses}
                 />
             );
         });
@@ -109,7 +117,11 @@ export default class Tabs extends React.Component {
             return (
                 <div className={`${style.vertical} row colby-tabs`}>
                     <div className={`col-sm-${left}`}>
-                        <ul className={`nav nav-tabs ${style.tabs} ${style.tabsLeft}`}>{rows}</ul>
+                        <ul
+                            className={`${this.props.tabClasses.tabContainer} ${style.tabs} ${style.tabsLeft}`}
+                        >
+                            {rows}
+                        </ul>
                     </div>
                     <div className={`col-sm-${right} colby-tabs-tab-content`}>{tabContent}</div>
                 </div>
@@ -118,7 +130,7 @@ export default class Tabs extends React.Component {
 
         return (
             <div>
-                <ul className={`nav nav-tabs ${style.tabs}`}>{rows}</ul>
+                <ul className={`${this.props.tabClasses.tabContainer} ${style.tabs}`}>{rows}</ul>
                 {tabContent}
             </div>
         );

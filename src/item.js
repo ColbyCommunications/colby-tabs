@@ -9,6 +9,7 @@ export default class Item extends React.Component {
         badge: PropTypes.node,
         isActive: PropTypes.bool,
         onSelectTab: PropTypes.func,
+        tabClasses: PropTypes.object.isRequired,
     };
 
     static defaultProps = {
@@ -26,10 +27,12 @@ export default class Item extends React.Component {
 
     render() {
         const className = this.props.isActive
-            ? 'active colby-tabs-tab nav-item nav-link'
-            : 'colby-tabs-tab nav-item nav-link';
+            ? `active colby-tabs-tab ${this.props.tabClasses.tabs}`
+            : `colby-tabs-tab ${this.props.tabClasses.tabs}`;
         const badge =
-            this.props.badge === '' ? null : <span className="badge">{this.props.badge}</span>;
+            this.props.badge === '' ? null : (
+                <span className="badge badge-pill badge-primary">{this.props.badge}</span>
+            );
 
         return (
             <li role="presentation" className={className} onClick={this.clicked}>

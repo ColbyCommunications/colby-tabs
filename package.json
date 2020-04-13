@@ -1,6 +1,6 @@
 {
     "name": "@colbycommunications/colby-tabs",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "description": "Bootstrap tabs component",
     "main": "dist/index.js",
     "author": "Brandon K. Waltz",
